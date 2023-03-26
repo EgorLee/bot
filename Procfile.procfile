@@ -1,1 +1,1 @@
-worker: python bot_checker.py
+webr: python bot_checker.py
