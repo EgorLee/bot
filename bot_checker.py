@@ -73,7 +73,7 @@ def run():
 
 
 if __name__ == '__main__':
-    schedule.every().day.at("00:10").do(run)
+    schedule.every().day.at("00:31").do(run)
     #schedule.every(10).seconds.do(run)
     while True:
         schedule.run_pending()
