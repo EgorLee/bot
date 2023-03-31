@@ -48,7 +48,7 @@ def get_form(url):
 
 
 def send_message(text):
-    chat_id = -999392862
+    chat_id = -915900386
     bot = telebot.TeleBot('6000652427:AAFjoz8uuhplWRlg5vJu2Wh8NI1e5BKD-68')
     bot.send_message(chat_id, text)
 
@@ -81,7 +81,7 @@ def run():
 
 if __name__ == '__main__':
     #schedule.every(5).seconds.do(run)
-    schedule.every().day.at("23:14").do(run)
+    schedule.every().day.at("23:17").do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
