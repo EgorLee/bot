@@ -48,7 +48,7 @@ def get_form(url):
 
 
 def send_message(text):
-    chat_id = 1047113787
+    chat_id = -685919967
     bot = telebot.TeleBot('6000652427:AAFjoz8uuhplWRlg5vJu2Wh8NI1e5BKD-68')
     bot.send_message(chat_id, text)
 
@@ -71,17 +71,17 @@ def run():
 
 
     if status_code == 200 and data == 1:
-        message_text = f"Форма работает. Код ответа : {status_code}"
+        message_text = f" '\U00002705' Форма работает. Код ответа : {status_code}"
     if status_code == 400:
-        message_text = f"Проблема с отправкой формы. Код ответа : {status_code}"
+        message_text = f" '\U000026A0' Проблема с отправкой формы. Код ответа : {status_code}"
     if not status_code == 400 and not status_code == 200:
-        message_text = f"Форма не работает. Код ответа : {status_code}"
+        message_text = f" '\U00002757' Форма не работает. Код ответа : {status_code}"
     send_message(message_text)
 
 
 if __name__ == '__main__':
     #schedule.every(5).seconds.do(run)
-    schedule.every().day.at("07:30").do(run)
+    schedule.every().day.at("23:05").do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
