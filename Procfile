@@ -1,1 +1,1 @@
-web: python bot_checker.py
+worker: python bot_checker.py
