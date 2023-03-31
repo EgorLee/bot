@@ -55,26 +55,34 @@ def send_message(text):
 
 def run():
     url = 'https://www.lbr.ru/widget-handler/get-price-form'
-    response = get_form(url)
+
+    try:
+        response = get_form(url)
+        status_code = response.status_code
+    except Exception:
+        status_code = 404
+
 
     try:
         data = response.json()
     except Exception:
         data = "Not Found"
-    print(f"{response.status_code} : {data}")
+    #print(f"{response.status_code} : {data}")
 
-    if response.status_code == 200 and data == 1:
-        message_text = f"Форма работает. Код ответа : {response.status_code}"
-    if response.status_code == 400:
-        message_text = f"Проблема с отправкой формы. Код ответа : {response.status_code}"
-    if not response.status_code == 400 and not response.status_code == 200:
-        message_text = f"Форма не работает. Код ответа : {response.status_code}"
+
+    if status_code == 200 and data == 1:
+        message_text = f"Форма работает. Код ответа : {status_code}"
+    if status_code == 400:
+        message_text = f"Проблема с отправкой формы. Код ответа : {status_code}"
+    if not status_code == 400 and not status_code == 200:
+        message_text = f"Форма не работает. Код ответа : {status_code}"
     send_message(message_text)
 
 
+
 if __name__ == '__main__':
-    #schedule.every().day.at("00:15").do(run)
-    schedule.every(10).seconds.do(run)
+    schedule.every().day.at("00:15").do(run)
+    #schedule.every(5).seconds.do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
