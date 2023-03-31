@@ -79,10 +79,9 @@ def run():
     send_message(message_text)
 
 
-
 if __name__ == '__main__':
     #schedule.every(5).seconds.do(run)
-    schedule.every().day.at("07:15").do(run)
+    schedule.every().day.at("07:30").do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
