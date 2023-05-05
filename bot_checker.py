@@ -33,7 +33,7 @@ DATA = {
     #'Content-Type': 'application/json',
     'priceCalculate-contactRadio': 'Phone',
     'name': 'BOT TEST',
-    'tel': '+7 (101) 010-10-10',
+    "email": 'vasenin@lbr.ru',
     'region-delivery': '94',
     "url": "https://www.lbr.ru/traktory/mtz/82-1",
     "model_name": "82.1",
