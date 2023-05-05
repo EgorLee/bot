@@ -31,7 +31,7 @@ HEADERS = {
 
 DATA = {
     #'Content-Type': 'application/json',
-    'priceCalculate-contactRadio': 'Phone',
+    'priceCalculate-contactRadio': 'Email',
     'name': 'BOT TEST',
     "email": 'vasenin@lbr.ru',
     'region-delivery': '94',
@@ -67,7 +67,7 @@ def run():
         data = response.json()
     except Exception:
         data = "Not Found"
-    #print(f"{response.status_code} : {data}")
+    print(f"{response.status_code} : {data}")
 
 
     if status_code == 200 and data == 1:
@@ -76,6 +76,8 @@ def run():
         message_text = f" '\U000026A0' Проблема с отправкой формы. Код ответа : {status_code}"
     if not status_code == 400 and not status_code == 200:
         message_text = f" '\U00002757' Форма не работает. Код ответа : {status_code}"
+    elif status_code == 200 and data != 1:
+        message_text = f" '\U000026A0' Проблема с отправкой формы. Код ответа : {status_code}"
     send_message(message_text)
 
 
